@@ -1,0 +1,4 @@
+[submodule "xtekc_blog/public"]
+	path = xtekc_blog/public
+	url = https://github.com/xTeKc/xtekc.dev.git
+	branch = main
