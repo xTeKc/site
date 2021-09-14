@@ -1,5 +1,0 @@
-baseURL = 'https://xtekc.dev/'
-languageCode = 'en-us'
-title = 'xTeKc Blog'
-
-theme = 'cupper-hugo-theme'
