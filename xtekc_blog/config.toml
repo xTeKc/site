@@ -1,3 +1,5 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://xtekc.dev'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'xTeKc Blog'
+
+theme = 'cupper-hugo-theme'
