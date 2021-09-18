@@ -19,6 +19,27 @@
         });
       </script>
 
+<script type="module">
+    import * as wasm from "./pkg/wasm_site.js";
+  
+    wasm.default().then((module) => {
+      // Enum \\
+      let rustEnum = wasm.ExampleEnum.Yes;
+      console.log(wasm.verify_enum_choice(rustEnum));
+  
+      // Struct \\
+      let rustStruct = wasm.ExampleStruct.new(6);
+      console.log(rustStruct); // this will contain a pointer
+      console.log(rustStruct.value);
+  
+      rustStruct.write_method(200);
+      console.log(rustStruct.read_method());
+  
+      let newRustStruct = rustStruct.transfer_ownership();
+      rustStruct.read_method(); // rustStruct is now invalid. An error will throw.
+    });
+  </script>
+
   </head>
 
   <body>
