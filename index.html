@@ -40,6 +40,31 @@
     });
   </script>
 
+  <!--
+  For simplicity, we'll add a class declaration to the global namespace.
+  The goal, from rust, is to create this class, call a method, and get/set a property.
+-->
+<script>
+    class Coordinate {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+  
+      printValues() {
+        return `(x:${this.x} y:${this.y})`;
+      }
+    }
+  </script>
+  
+  <script type="module">
+    import * as wasm from "./pkg/wasm_site.js";
+  
+    wasm.default().then((module) => {
+      wasm.manual_bindings_example();
+    });
+  </script>
+
   </head>
 
   <body>
