@@ -154,3 +154,67 @@ impl ExampleStruct {
         self
     }
 }
+
+
+
+
+
+
+
+use wasm_bindgen::prelude::*;
+
+// Although we're using what's in the global namespace, we can also import from other modules.
+// #[wasm_bindgen(module = "./bar")]
+// extern "C" {}
+
+// Binding JS involves a bit of boilerplate because we have to specify each name
+// and signature to bind.
+#[wasm_bindgen]
+extern "C" {
+    // Bindings must be named as their JS equivalent
+    fn alert(s: &str);
+
+    // A different name can be specified as long as the original name is passed to the macro.
+    #[wasm_bindgen(js_name = prompt)]
+    fn ask(s: &str) -> String;
+
+    // Functions can be from any js namespace.
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
+
+    // Using a different name allows us to specify various signatures.
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_num(n: i32);
+
+    //* JS Class example *\\
+    // The process is a little verbose because create a binding for
+    // each part of the class we want (class name, constructor, methods, setters, getters).
+    type Coordinate;
+
+    #[wasm_bindgen(constructor)]
+    fn new(x: i32, y: i32) -> Coordinate;
+
+    // methods must match the naming in the class declaration.
+    #[wasm_bindgen(method)]
+    fn printValues(this: &Coordinate) -> String;
+
+    // getters are named as the property we want.
+    #[wasm_bindgen(getter, method)]
+    fn x(this: &Coordinate) -> i32;
+
+    // setters are named the same as getters but with a `set_` prefix.
+    #[wasm_bindgen(setter, method)]
+    fn set_x(this: &Coordinate, x: i32);
+}
+
+#[wasm_bindgen]
+pub fn manual_bindings_example() {
+    alert("Hey buddy!");
+    log(&ask("Tell me about your day!"));
+
+    let coordinates = Coordinate::new(-4, 15);
+    log_num(coordinates.x()); // prints -4
+
+    coordinates.set_x(coordinates.x() * 2);
+    log(&coordinates.printValues()); // prints (-8, 15)
+}
