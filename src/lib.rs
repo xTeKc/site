@@ -100,3 +100,57 @@ pub fn result_example() -> Result<i32, JsValue> {
     // With the wasm prelude imported, we can convert most common types by calling .into()
     Err("JS error!".into())
 }
+
+
+
+
+
+
+
+use wasm_bindgen::prelude::*;
+
+// When it comes to Enums:
+// - They  are C styled.
+// - JS represents them through an object with a number for each variant.
+#[wasm_bindgen]
+pub enum ExampleEnum {
+    Yes,
+    No,
+}
+
+#[wasm_bindgen]
+pub fn verify_enum_choice(choice: ExampleEnum) -> bool {
+    match choice {
+        ExampleEnum::Yes => true,
+        ExampleEnum::No => false,
+    }
+}
+
+// When it comes to Structs:
+// - Cannot contain lifetimes or type parameters.
+// - Each field value must impl the Copy trait.
+#[wasm_bindgen]
+pub struct ExampleStruct {
+    pub value: i32,
+}
+
+// For struct impl, we have the option for struct methods and type-level functions.
+// JS handles structs by creating a JS object with a pointer (i.o.w. we can use references!).
+#[wasm_bindgen]
+impl ExampleStruct {
+    pub fn new(value: i32) -> ExampleStruct {
+        ExampleStruct { value }
+    }
+
+    pub fn read_method(&self) -> i32 {
+        self.value
+    }
+
+    pub fn write_method(&mut self, value: i32) {
+        self.value = value;
+    }
+
+    pub fn transfer_ownership(self) -> ExampleStruct {
+        self
+    }
+}
