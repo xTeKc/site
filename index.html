@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Wasm Project</title>
+  </head>
+
+  <body>
+    <script type="module">
+      // Importing WASM for the web target requires us to call an init function provided by the default module export.
+      // This is planned to be changed in the future.
+      import { default as wasm, greet } from "./pkg/wasm_site.js";
+
+      wasm().then((module) => {
+        // The boiler plate project comes with a `greet` function that calls:
+        // `alert("Hello, wasm-site!");`
+        greet();
+      });
+    </script>
+  </body>
+</html>
