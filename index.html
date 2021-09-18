@@ -3,6 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <title>Wasm Project</title>
+
+    <script type="module">
+        import * as wasm from "./pkg/wasm_site.js";
+      
+        wasm.default().then((module) => {
+          wasm.char_example("R");
+          wasm.string_example("Jane");
+          wasm.str_example("John");
+          wasm.number_example(28);
+          wasm.mixed_array_example([2, null, undefined, "Hola", true]);
+          wasm.typed_array_example([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+          wasm.option_example();
+          wasm.result_example();
+        });
+      </script>
+
   </head>
 
   <body>
