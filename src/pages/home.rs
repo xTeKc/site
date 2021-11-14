@@ -9,7 +9,7 @@ struct Item {
 }
 
 struct State {
-    
+    items: Vec<Item>,
 }
 
 pub struct Home {}
