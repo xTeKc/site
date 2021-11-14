@@ -8,6 +8,10 @@ struct Item {
     price: f64,
 }
 
+struct State {
+    
+}
+
 pub struct Home {}
 
 impl Component for Home {
