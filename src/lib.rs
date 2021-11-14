@@ -12,6 +12,10 @@ struct Item {
     price: f64,
 }
 
+struct State {
+    items: Vec<Item>,
+}
+
 impl Component for Item {
     type Message = ();
     type Properties = ();
