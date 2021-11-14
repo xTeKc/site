@@ -1,7 +1,11 @@
 use yew::prelude::*;
 
 struct Item {
-    
+    id: i32, 
+    name: String,
+    description: String,
+    image: String,
+    price: f64,
 }
 
 pub struct Home {}
