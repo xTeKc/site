@@ -4,9 +4,11 @@ use pages::Home;
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
 
-struct Hello {}
+struct Item {
+    
+}
 
-impl Component for Hello {
+impl Component for Item {
     type Message = ();
     type Properties = ();
 
