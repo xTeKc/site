@@ -5,7 +5,11 @@ use wasm_bindgen::prelude::*;
 use yew::prelude::*;
 
 struct Item {
-    
+    id: i32,
+    name: String,
+    description: String,
+    image: String,
+    price: f64,
 }
 
 impl Component for Item {
