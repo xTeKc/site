@@ -1,5 +1,9 @@
 use yew::prelude::*;
 
+struct Item {
+    
+}
+
 pub struct Home {}
 
 impl Component for Home {
