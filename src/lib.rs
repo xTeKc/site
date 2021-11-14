@@ -4,19 +4,9 @@ use pages::Home;
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
 
-struct Item {
-    id: i32,
-    name: String,
-    description: String,
-    image: String,
-    price: f64,
-}
+struct Hello {}
 
-struct State {
-    items: Vec<Item>,
-}
-
-impl Component for Item {
+impl Component for Hello {
     type Message = ();
     type Properties = ();
 
@@ -39,6 +29,6 @@ impl Component for Item {
 
 #[wasm_bindgen(start)]
 pub fn run_app() {
-    App::<Item>::new().mount_to_body();
+    App::<Hello>::new().mount_to_body();
     App::<Home>::new().mount_to_body();
 }
