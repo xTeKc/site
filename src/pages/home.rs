@@ -12,7 +12,9 @@ struct State {
     items: Vec<Item>,
 }
 
-pub struct Home {}
+pub struct Home {
+    state: State,
+}
 
 impl Component for Home {
     type Message = ();
