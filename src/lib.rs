@@ -31,6 +31,6 @@ impl Component for Item {
 
 #[wasm_bindgen(start)]
 pub fn run_app() {
-    App::<Hello>::new().mount_to_body();
+    App::<Item>::new().mount_to_body();
     App::<Home>::new().mount_to_body();
 }
