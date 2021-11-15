@@ -47,6 +47,20 @@ impl Component for Home {
     }
 
     fn view(&self) -> Html {
+        let items: Vec<Html> = self 
+        .state
+        .items
+        .iter()
+        .map(|item:&Item| {
+            html! {
+                <div>
+                <img src={&item.image}/>
+                <div>{&item.name}</div>
+                <div>{"$"}{&item.price}</div>
+                </div>
+            }
+        })
+        html! { <span>{items}</span>}
         html! { <span>{"Home Sweet Home!"}</span> }
     }
 }
