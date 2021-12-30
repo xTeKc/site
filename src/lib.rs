@@ -29,6 +29,5 @@ impl Component for Hello {
 
 #[wasm_bindgen(start)]
 pub fn run_app() {
-    App::<Hello>::new().mount_to_body();
     App::<Home>::new().mount_to_body();
 }

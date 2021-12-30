@@ -1,41 +1,13 @@
 use yew::prelude::*;
 
-struct Item {
-    id: i32, 
-    name: String,
-    description: String,
-    image: String,
-    price: f64,
-}
-
-struct State {
-    items: Vec<Item>,
-}
-
-pub struct Home {
-    state: State,
-}
+pub struct Home {}
 
 impl Component for Home {
     type Message = ();
     type Properties = ();
 
     fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
-        let items: Vec<Item> = vec![
-            Item {
-                id: 1,
-                name: "Apple".to_string(),
-                description: "An apple a day keeps the doctor away".to_string(),
-                image: "image".to_string(),
-                price: 4.49,
-            },
-        ];
-
-        Self {
-            state: State {
-                items,
-             }
-        }
+        Self {}
     }
 
     fn update(&mut self, _: Self::Message) -> ShouldRender {
@@ -47,20 +19,6 @@ impl Component for Home {
     }
 
     fn view(&self) -> Html {
-        let items: Vec<Html> = self 
-        .state
-        .items
-        .iter()
-        .map(|item:&Item| {
-            html! {
-                <div>
-                <img src={&item.image}/>
-                <div>{&item.name}</div>
-                <div>{"$"}{&item.price}</div>
-                </div>
-            }
-        })
-        html! { <span>{items}</span>}
         html! { <span>{"Home Sweet Home!"}</span> }
     }
 }
