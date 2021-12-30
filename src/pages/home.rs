@@ -1,5 +1,16 @@
 use yew::prelude::*;
 
+struct Product {
+    name: String,
+    description: String,
+    image: String,
+    price: f64,
+}
+
+struct State {
+    products: Vec<Product>,
+}
+
 pub struct Home {}
 
 impl Component for Home {
