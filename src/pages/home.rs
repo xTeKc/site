@@ -11,7 +11,9 @@ struct State {
     products: Vec<Product>,
 }
 
-pub struct Home {}
+pub struct Home {
+    state: State,
+}
 
 impl Component for Home {
     type Message = ();
