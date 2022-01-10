@@ -11,8 +11,3 @@ module.exports = {
 // mirror a tailwind js config file with wasm-bindgen
 
 #[wasm-bindgen]
-pub fn module_exports() {
-    let content = ;
-    let theme = ;
-    let plugins = ;
-}
