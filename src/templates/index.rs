@@ -1,4 +1,3 @@
-
 // update "greeting" to something else
 
 use perseus::{
@@ -19,6 +18,8 @@ pub fn index_page(props: IndexPageProps) -> View<G> {
     view! {
         p {(props.greeting)}
         a(href = "about", id = "about-link") { "About!" }
+        a(href = "blog", id = "blog-link") { "Blog!" }
+        a(href = "projects", id = "projects-link") { "Projects!" }
     }
 }
 
